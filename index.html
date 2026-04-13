@@ -55,20 +55,20 @@
 
         /* 主卡片 —— 现代轻盈玻璃质感 + 细腻阴影  (不牺牲速度) */
         .card {
-            max-width: 720px;
+            max-width: 880px;
             width: 100%;
             background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(0px); /* 保持纯性能，但视觉干净，不需重模糊 */
+            backdrop-filter: blur(0px);
             border-radius: 2.5rem;
             box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.02);
-            padding: 2.2rem 2.2rem 2.5rem;
+            padding: 2rem 2rem 2rem;
             transition: transform 0.2s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255,255,255,0.5);
             position: relative;
             z-index: 2;
         }
 
-        /* 悬浮时卡片轻微浮起 (增加细节呼吸感) */
+        /* 悬浮时卡片轻微浮起 */
         @media (hover: hover) {
             .card:hover {
                 transform: translateY(-3px);
@@ -76,9 +76,9 @@
             }
         }
 
-        /* 品牌区 - 开阔现代排版 */
+        /* 品牌区 - 现代开阔排版 (紧凑微调) */
         .brand {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             position: relative;
         }
         .brand-main {
@@ -86,10 +86,10 @@
             align-items: baseline;
             flex-wrap: wrap;
             justify-content: space-between;
-            row-gap: 0.5rem;
+            row-gap: 0.4rem;
         }
         .brand h1 {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             background: linear-gradient(125deg, #1A2F44, #2C6288, #1f4e6e);
@@ -100,161 +100,53 @@
         }
         .brand-badge {
             background: #eef3fc;
-            padding: 0.2rem 0.8rem;
+            padding: 0.2rem 0.7rem;
             border-radius: 40px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
             color: #2c6288;
             letter-spacing: 0.3px;
             border: 1px solid rgba(44,98,136,0.2);
-            backdrop-filter: blur(2px);
         }
         .sub-line {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
         }
         .sub {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 480;
             color: #4c6a8c;
             background: #f1f6fd;
-            padding: 0.2rem 0.8rem;
+            padding: 0.15rem 0.7rem;
             border-radius: 30px;
             display: inline-block;
         }
         .voice-mark {
             font-family: monospace;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             background: transparent;
             border: 1px solid #cfdfef;
             color: #3b6a96;
         }
 
-        /* 现代感功能网格 (呼吸感, 整洁但精致) */
-        .feature-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            background: #ffffff;
-            border-radius: 1.8rem;
-            padding: 0.2rem 0;
-            margin: 1.8rem 0 1.6rem;
-        }
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.6rem 0.8rem;
-            background: #fafdff;
-            border-radius: 1.5rem;
-            transition: all 0.2s;
-            border: 1px solid #eef2f8;
-        }
-        .feature-item:hover {
-            background: #ffffff;
-            border-color: #dce5f0;
-            transform: translateX(4px);
-        }
-        .feature-icon {
-            width: 2.4rem;
-            height: 2.4rem;
-            background: linear-gradient(135deg, #eef6ff, #e2ecf9);
-            border-radius: 1.2rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.02);
-        }
-        .feature-text {
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: #1f3b4c;
-            line-height: 1.4;
-            letter-spacing: -0.2px;
-        }
-        .feature-text strong {
-            font-weight: 650;
-            color: #1f5e7e;
-        }
-
-        /* 优雅提示卡 (丰富但不刺眼) */
-        .notice-modern {
-            background: #fefaf5;
-            border-radius: 1.6rem;
-            padding: 1.2rem 1.3rem;
-            margin: 1.5rem 0 2rem;
-            border: 1px solid #ffe6c7;
-            box-shadow: 0 6px 12px -8px rgba(0,0,0,0.05);
-            transition: all 0.2s;
-        }
-        .notice-header {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 0.6rem;
-        }
-        .notice-header span:first-child {
-            background: #ffeed9;
-            width: 28px;
-            height: 28px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 30px;
-            font-size: 1rem;
-        }
-        .notice-header .notice-title {
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: #b45309;
-            letter-spacing: -0.2px;
-        }
-        .notice-content {
-            font-size: 0.87rem;
-            color: #7a4c1a;
-            line-height: 1.45;
-            margin-left: 0.2rem;
-        }
-        .notice-content strong {
-            background: #fce9ce;
-            padding: 0.1rem 0.4rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        .helper-tag {
-            margin-top: 0.7rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            background: #fef3e2;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #b2621a;
-        }
-
-        /* 主按钮 —— 大气动态渐变，指向明确 */
+        /* 主按钮 —— 大气动态渐变，指向明确，置于顶部核心区 */
         .action {
             text-align: center;
-            margin: 0.5rem 0 0.8rem;
+            margin: 0.8rem 0 0.8rem;
         }
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.7rem;
+            gap: 0.6rem;
             background: linear-gradient(105deg, #1f4468, #153e60);
             color: white;
             font-weight: 620;
-            font-size: 1.08rem;
-            padding: 1rem 2.6rem;
+            font-size: 1rem;
+            padding: 0.85rem 2.2rem;
             border-radius: 80px;
             text-decoration: none;
             transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
@@ -262,7 +154,6 @@
             border: none;
             cursor: pointer;
             letter-spacing: 0.3px;
-            backdrop-filter: blur(2px);
         }
         .btn:hover {
             background: linear-gradient(105deg, #163a57, #0e2f48);
@@ -273,7 +164,7 @@
             transform: scale(0.98) translateY(1px);
         }
         .btn-arrow {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: transform 0.2s ease;
             display: inline-block;
         }
@@ -281,17 +172,197 @@
             transform: translateX(5px);
         }
 
+        /* 🎬 示例视频区域 — 核心视觉焦点 */
+        .video-showcase {
+            margin: 0.2rem 0 1rem 0;
+            background: #f8fbfe;
+            border-radius: 1.8rem;
+            padding: 0.8rem;
+            border: 1px solid #e2edf7;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+        .video-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .video-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #eef3fc;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1f5e7e;
+        }
+        .video-title span {
+            font-size: 1rem;
+        }
+        .video-badge {
+            font-size: 0.7rem;
+            background: #eaf4e8;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            color: #2b6e3c;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            border-radius: 1.4rem;
+            overflow: hidden;
+            background: #0000000c;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 1.2rem;
+            background: #eef2f6;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .demo-caption {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+            font-size: 0.7rem;
+            color: #5e7e9c;
+            background: #ffffffcc;
+            padding: 0.3rem 0.5rem;
+            border-radius: 2rem;
+            text-align: center;
+        }
+        .demo-caption strong {
+            font-weight: 600;
+            color: #2c6288;
+        }
+
+        /* 紧凑现代功能网格 (压缩空间，双列紧凑布局) */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            margin: 0.8rem 0 0.6rem;
+            background: transparent;
+            border-radius: 1.2rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.45rem 0.7rem;
+            background: #fafdff;
+            border-radius: 1.2rem;
+            transition: all 0.15s;
+            border: 1px solid #eef2f8;
+        }
+        .feature-item:hover {
+            background: #ffffff;
+            border-color: #d4e2f0;
+            transform: translateY(-1px);
+        }
+        .feature-icon {
+            width: 1.9rem;
+            height: 1.9rem;
+            background: linear-gradient(135deg, #eef6ff, #e2ecf9);
+            border-radius: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.02);
+        }
+        .feature-text {
+            font-weight: 500;
+            font-size: 0.77rem;
+            color: #1f3b4c;
+            line-height: 1.35;
+            letter-spacing: -0.2px;
+        }
+        .feature-text strong {
+            font-weight: 650;
+            color: #1f5e7e;
+        }
+
+        /* 优雅提示卡 (压缩内边距，降低视觉比重) */
+        .notice-modern {
+            background: #fefaf5;
+            border-radius: 1.2rem;
+            padding: 0.7rem 1rem;
+            margin: 0.5rem 0 1rem;
+            border: 1px solid #ffe6c7;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: all 0.2s;
+        }
+        .notice-header {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+        .notice-header span:first-child {
+            background: #ffeed9;
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+        .notice-header .notice-title {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #b45309;
+            letter-spacing: -0.2px;
+        }
+        .notice-content {
+            font-size: 0.75rem;
+            color: #7a4c1a;
+            line-height: 1.4;
+            margin-left: 0.1rem;
+        }
+        .notice-content strong {
+            background: #fce9ce;
+            padding: 0.05rem 0.3rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.7rem;
+        }
+        .helper-tag {
+            margin-top: 0.4rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            background: #fef3e2;
+            padding: 0.15rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: #b2621a;
+        }
+
         /* 底部极简信用区 — 细致干净 */
         .footer-info {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
+            margin-top: 1rem;
+            padding-top: 0.8rem;
             border-top: 1px solid #eaf0f6;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.6rem 1rem;
-            font-size: 0.7rem;
+            gap: 0.5rem 1rem;
+            font-size: 0.68rem;
             color: #8aa3c0;
         }
         .footer-info span {
@@ -308,58 +379,63 @@
             border-bottom-color: #1f4a6e;
         }
 
-        /* 移动端完美适配 - 保留呼吸空间 */
+        /* 移动端完美适配 - 保留呼吸空间，视频突出 */
         @media (max-width: 600px) {
             body {
                 padding: 1.2rem;
             }
             .card {
-                padding: 1.5rem 1.3rem 1.8rem;
+                padding: 1.2rem 1.2rem 1.5rem;
                 border-radius: 2rem;
             }
             .brand h1 {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
             }
             .brand-main {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 0.3rem;
+                gap: 0.2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
             }
             .feature-item {
-                padding: 0.5rem 0.6rem;
-                gap: 0.8rem;
-            }
-            .feature-icon {
-                width: 2rem;
-                height: 2rem;
-                font-size: 1.1rem;
+                padding: 0.4rem 0.7rem;
             }
             .feature-text {
-                font-size: 0.88rem;
+                font-size: 0.75rem;
             }
             .btn {
-                padding: 0.8rem 1.6rem;
-                font-size: 1rem;
+                padding: 0.7rem 1.4rem;
+                font-size: 0.95rem;
                 width: 100%;
             }
             .notice-modern {
-                padding: 1rem;
+                padding: 0.6rem 0.8rem;
+            }
+            .video-showcase {
+                padding: 0.6rem;
+                margin: 0.2rem 0 0.8rem;
+            }
+            .action {
+                margin: 0.6rem 0 0.6rem;
             }
         }
 
-        /* 超小屏 (≤420) 微调字号 */
+        /* 超小屏 (≤420) 微调 */
         @media (max-width: 420px) {
             .brand h1 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
             .feature-text {
-                font-size: 0.84rem;
+                font-size: 0.7rem;
             }
             .notice-content {
-                font-size: 0.8rem;
+                font-size: 0.7rem;
             }
             .card {
-                padding: 1.3rem 1rem 1.5rem;
+                padding: 1rem 1rem 1.2rem;
             }
         }
 
@@ -390,10 +466,10 @@
 </head>
 <body>
     <div class="card">
-        <!-- 品牌区：大气利落，层次感提升 -->
+        <!-- 品牌区：保持清晰标识 -->
         <div class="brand">
             <div class="brand-main">
-                <h1>声文映画<br><span style="font-size: 0.9rem; font-weight: 500; background: none; padding:0; color: #5b7c9e;">VoiceTextVid</span></h1>
+                <h1>声文映画<br><span style="font-size: 0.8rem; font-weight: 500; background: none; padding:0; color: #5b7c9e;">VoiceTextVid</span></h1>
                 <div class="brand-badge">✦ 手把手AI工具</div>
             </div>
             <div class="sub-line">
@@ -403,11 +479,40 @@
             </div>
         </div>
 
-        <!-- 功能列表：现代卡片式条目，设计感细节 -->
+        <!-- 🚀 核心操作按钮：置于视频上方，让用户第一时间点击进入，无需滚动 -->
+        <div class="action">
+            <a href="https://yale-shnu.github.io/VoiceTextVid/" target="_blank" rel="noopener noreferrer" class="btn">
+                立即访问 声文映画
+                <span class="btn-arrow">→</span>
+            </a>
+        </div>
+
+        <!-- 🎬 核心视频示例：展示生成效果，突出工具能力 -->
+        <div class="video-showcase">
+            <div class="video-header">
+                <div class="video-title">
+                    <span>🎥</span> 生成效果示例 · 语音克隆+智能字幕
+                </div>
+                <div class="video-badge">
+                    sample.mp4
+                </div>
+            </div>
+            <div class="video-container">
+                <video controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='100%25' height='100%25' fill='%23e2ecf9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%235e7e9c' font-size='12' font-family='system-ui'%3E加载示例视频%3C/text%3E%3C/svg%3E" style="width:100%; background:#eef2f6;">
+                    <source src="sample.mp4" type="video/mp4">
+                    您的浏览器不支持 video 标签。请将 sample.mp4 放置于同目录下查看示例效果。
+                </video>
+            </div>
+            <div class="demo-caption">
+                <span>✨</span> 本视频由 <strong>“声文映画”</strong> 根据文本自动生成 · 含AI语音克隆 + 实时字幕流 <span>🎬</span>
+            </div>
+        </div>
+
+        <!-- 功能特性区：紧凑双列网格，介绍性内容占比降低但信息完整 -->
         <div class="feature-grid">
             <div class="feature-item">
                 <div class="feature-icon">🎬</div>
-                <div class="feature-text">输入标题 + 文本，<strong>自动生成带字幕视频</strong> — 微课/短宣一键出片</div>
+                <div class="feature-text">输入标题+文本，<strong>自动生成带字幕视频</strong> — 微课/短宣一键出片</div>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">🎙️</div>
@@ -423,7 +528,7 @@
             </div>
         </div>
 
-        <!-- 优雅提示区，保留原有关键引导 -->
+        <!-- 优雅提示区，保留关键指引，整体占比轻量 -->
         <div class="notice-modern">
             <div class="notice-header">
                 <span>📌</span>
@@ -438,15 +543,7 @@
             </div>
         </div>
 
-        <!-- 动态行动按钮 -->
-        <div class="action">
-            <a href="https://yale-shnu.github.io/VoiceTextVid/" target="_blank" rel="noopener noreferrer" class="btn">
-                立即访问 声文映画
-                <span class="btn-arrow">→</span>
-            </a>
-        </div>
-
-        <!-- 底部辅助信息：轻量但精致，增强可信度 -->
+        <!-- 底部辅助信息：轻量精致 -->
         <div class="footer-info">
             <span>🪄 VoiceTextVid · 手把手AI工具系列</span>
             <span>⚡ 极速字幕 | 语音克隆</span>
