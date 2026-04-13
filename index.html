@@ -55,7 +55,7 @@
 
         /* 主卡片 —— 现代轻盈玻璃质感 + 细腻阴影  (不牺牲速度) */
         .card {
-            max-width: 880px;
+            max-width: 1100px;
             width: 100%;
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(0px);
@@ -172,7 +172,7 @@
             transform: translateX(5px);
         }
 
-        /* 🎬 示例视频区域 — 核心视觉焦点 */
+        /* 🎬 示例视频区域 — 双视频优雅网格布局 */
         .video-showcase {
             margin: 0.2rem 0 1rem 0;
             background: #f8fbfe;
@@ -186,7 +186,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             flex-wrap: wrap;
             gap: 0.4rem;
         }
@@ -211,6 +211,27 @@
             border-radius: 40px;
             color: #2b6e3c;
         }
+        
+        /* 双视频网格布局 (电脑并排，移动端堆叠) */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+        
+        .video-item {
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+            border-radius: 1.4rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .video-item:hover {
+            transform: translateY(-2px);
+        }
+        
         .video-container {
             position: relative;
             width: 100%;
@@ -219,6 +240,7 @@
             background: #0000000c;
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
         }
+        
         .video-container video {
             width: 100%;
             height: auto;
@@ -228,7 +250,9 @@
             aspect-ratio: 16 / 9;
             object-fit: cover;
         }
-        .demo-caption {
+        
+        /* 每个视频下方的独立说明行 */
+        .video-item-caption {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -240,8 +264,45 @@
             padding: 0.3rem 0.5rem;
             border-radius: 2rem;
             text-align: center;
+            backdrop-filter: blur(2px);
+            font-weight: 500;
         }
-        .demo-caption strong {
+        
+        .video-item-caption strong {
+            font-weight: 650;
+            color: #2c6288;
+            background: #eef3fc;
+            padding: 0.1rem 0.5rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+        }
+        
+        .video-item-caption .file-badge {
+            background: #eef3fc;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+            font-family: monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #1f5e7e;
+        }
+        
+        /* 总体说明（双视频下方共用描述） */
+        .demo-caption-global {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+            font-size: 0.7rem;
+            color: #5e7e9c;
+            background: #ffffffdd;
+            padding: 0.4rem 0.8rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: 1px solid #e2edf7;
+        }
+        .demo-caption-global strong {
             font-weight: 600;
             color: #2c6288;
         }
@@ -379,7 +440,17 @@
             border-bottom-color: #1f4a6e;
         }
 
-        /* 移动端完美适配 - 保留呼吸空间，视频突出 */
+        /* ========= 移动端完美适配 ========= */
+        @media (max-width: 700px) {
+            .videos-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .card {
+                max-width: 100%;
+            }
+        }
+        
         @media (max-width: 600px) {
             body {
                 padding: 1.2rem;
@@ -421,6 +492,14 @@
             .action {
                 margin: 0.6rem 0 0.6rem;
             }
+            .video-item-caption {
+                font-size: 0.65rem;
+                padding: 0.25rem 0.4rem;
+            }
+            .demo-caption-global {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.6rem;
+            }
         }
 
         /* 超小屏 (≤420) 微调 */
@@ -437,11 +516,14 @@
             .card {
                 padding: 1rem 1rem 1.2rem;
             }
+            .videos-grid {
+                gap: 1rem;
+            }
         }
 
         /* 减少动画偏好处理 */
         @media (prefers-reduced-motion: reduce) {
-            .btn, .btn-arrow, .card, .feature-item {
+            .btn, .btn-arrow, .card, .feature-item, .video-item {
                 transition: none;
                 transform: none !important;
             }
@@ -449,6 +531,9 @@
                 transform: none;
             }
             .card:hover {
+                transform: none;
+            }
+            .video-item:hover {
                 transform: none;
             }
         }
@@ -479,7 +564,7 @@
             </div>
         </div>
 
-        <!-- 🚀 核心操作按钮：置于视频上方，让用户第一时间点击进入，无需滚动 -->
+        <!-- 🚀 核心操作按钮：置于视频上方，让用户第一时间点击进入 -->
         <div class="action">
             <a href="https://www.shnuyl.cn/VoiceTextVid/" target="_blank" rel="noopener noreferrer" class="btn">
                 立即访问 声文映画
@@ -487,24 +572,51 @@
             </a>
         </div>
 
-        <!-- 🎬 核心视频示例：展示生成效果，突出工具能力 -->
+        <!-- 🎬 双视频示例展示：sample2.mp4 和 sample3.mp4 并排/堆叠布局 -->
         <div class="video-showcase">
             <div class="video-header">
                 <div class="video-title">
                     <span>🎥</span> 生成效果示例 · 语音克隆+智能字幕
                 </div>
                 <div class="video-badge">
-                    sample.mp4
+                    双示例展示
                 </div>
             </div>
-            <div class="video-container">
-                <video controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='100%25' height='100%25' fill='%23e2ecf9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%235e7e9c' font-size='12' font-family='system-ui'%3E加载示例视频%3C/text%3E%3C/svg%3E" style="width:100%; background:#eef2f6;">
-                    <source src="sample.mp4" type="video/mp4">
-                    您的浏览器不支持 video 标签。请将 sample.mp4 放置于同目录下查看示例效果。
-                </video>
+            
+            <!-- 双视频网格容器 -->
+            <div class="videos-grid">
+                <!-- 视频 1: sample2.mp4 -->
+                <div class="video-item">
+                    <div class="video-container">
+                        <video controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='100%25' height='100%25' fill='%23e2ecf9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%235e7e9c' font-size='12' font-family='system-ui'%3E示例2 加载中%3C/text%3E%3C/svg%3E" style="width:100%; background:#eef2f6;">
+                            <source src="sample2.mp4" type="video/mp4">
+                            您的浏览器不支持 video 标签。请将 sample2.mp4 放置于同目录下查看示例效果。
+                        </video>
+                    </div>
+                    <div class="video-item-caption">
+                        <span class="file-badge">📹 sample2.mp4</span>
+                        <span>✨ 语音克隆 + 普通话版</span>
+                    </div>
+                </div>
+                
+                <!-- 视频 2: sample3.mp4 -->
+                <div class="video-item">
+                    <div class="video-container">
+                        <video controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='100%25' height='100%25' fill='%23e2ecf9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%235e7e9c' font-size='12' font-family='system-ui'%3E示例3 加载中%3C/text%3E%3C/svg%3E" style="width:100%; background:#eef2f6;">
+                            <source src="sample3.mp4" type="video/mp4">
+                            您的浏览器不支持 video 标签。请将 sample3.mp4 放置于同目录下查看示例效果。
+                        </video>
+                    </div>
+                    <div class="video-item-caption">
+                        <span class="file-badge">🎬 sample3.mp4</span>
+                        <span>⚡ 实时字幕流 + 陕西话版</span>
+                    </div>
+                </div>
             </div>
-            <div class="demo-caption">
-                <span>✨</span> 本视频由 <strong>“声文映画”</strong> 根据文本自动生成 · 含AI语音克隆 + 实时字幕流 <span>🎬</span>
+            
+            <!-- 双视频下方公用说明，体现工具生成能力 -->
+            <div class="demo-caption-global">
+                <span>✨</span> 以上视频均由 <strong>“声文映画”</strong> 根据文本自动生成 · 含AI语音克隆 + 动态字幕流 <span>🎬</span>
             </div>
         </div>
 
@@ -528,7 +640,7 @@
             </div>
         </div>
 
-        <!-- 优雅提示区，保留关键指引，整体占比轻量 -->
+        <!-- 优雅提示区，保留关键指引 -->
         <div class="notice-modern">
             <div class="notice-header">
                 <span>📌</span>
